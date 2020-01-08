@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.paginate(page: params[:page], per_page: 10)
+  end
+
   def users_params
     params.require(:user).permit(:name, :email, :password, :password_digest)
   end

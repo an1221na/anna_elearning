@@ -1,0 +1,22 @@
+<div class="jumbotron container mt-5">
+    <div class="text-center">
+        <h1>All Users</h1>
+
+        <div class="paginate mb-3">
+            <%= will_paginate %>
+        </div>
+
+        <div class="row">
+            <% @users.each do |user| %>
+                <div class="col-md-6">
+                    <section>
+                        <div class="border border-dark my-2">
+                            <%= link_to user.name, user %>
+                        </div>
+                    </section>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+</div>
