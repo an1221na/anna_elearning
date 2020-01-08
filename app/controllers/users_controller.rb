@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-    @user.save
+    if @user.save
+      flash[:success] = "Welcome to E-learning page!!"
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def users_params
