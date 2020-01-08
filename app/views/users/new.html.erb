@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Signup</title>
+    </head>
+    <body>
+        <div class="jumbotron container mt-5 text-center">
+            <h1>Signup</h1>
+            <p>Join us for free!!</p>
+            
+            <div class="row">
+                <div class="col-6 mx-auto">
+                    <%= form_for(@user) do |f| %>
+                        <form class="container">
+                            <div class="form-group">
+                                <%= f.label :name %><br>
+                                <%= f.text_field :name, class:"form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :email %><br>
+                                <%= f.email_field :email, class:"form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :password %><br>
+                                <%= f.password_field :password, class:"form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :password_digest %><br>
+                                <%= f.password_field :password_digest, class:"form-control" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.submit "Create New Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
+                            </div>
+                        </form>
+                    <% end %>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
