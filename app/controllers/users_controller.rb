@@ -17,7 +17,26 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 10)
   end
 
-  def users_params
-    params.require(:user).permit(:name, :email, :password, :password_digest)
+  def edit
+    @user = User.find(params[:id])
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(users_params)
+      flash[:success] = "Successfully Updated!"
+      redirect_to 
+    else
+      render 'edit'
+    end
+  end
+
+  def users_params
+    params.require(:user).permit(:name, :email, :password, :password_digest, :image)
+  end
+
 end

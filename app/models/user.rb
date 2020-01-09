@@ -10,5 +10,7 @@ class User < ApplicationRecord
 
     has_secure_password
     validates :password, length: { minimum: 4 }
+
+    mount_uploader :image, ImageUploader
    
 end
