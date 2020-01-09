@@ -9,6 +9,8 @@ class User < ApplicationRecord
                 uniqueness: { case_sensitive: false }
 
     has_secure_password
-    validates :password, length: { minimum: 4 }
+    validates :password, length: { minimum: 4 }, allow_nil: true
+
+    mount_uploader :image, ImageUploader
    
 end

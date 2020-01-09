@@ -68,3 +68,5 @@ gem 'will_paginate', '~> 3.2', '>= 3.2.1'
 gem 'will_paginate-bootstrap4', '~> 0.2.2'
 
 gem 'faker', '~> 2.9'
+
+gem 'carrierwave'

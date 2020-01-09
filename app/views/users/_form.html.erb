@@ -17,8 +17,21 @@
             <%= f.label :password_confirmation %><br>
             <%= f.password_field :password_confirmation, class:"form-control" %>
         </div>
-        <div class="form-group">
-            <%= f.submit "Create New Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
-        </div>
+
+        <% if signed_in? %>
+            <div class="form-group">
+                <%= f.label :image %><br>
+                <%= f.file_field :image %>
+            </div>
+            <div class="form-group">
+                <%= f.submit "Edit Your Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
+            </div>
+        <% else %>
+            <div class="form-group">
+                <%= f.submit "Create New Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
+            </div>
+        <% end %>
+
+
     </form>
 <% end %>
