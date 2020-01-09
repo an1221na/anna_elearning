@@ -1,0 +1,43 @@
+<div class="row container mt-5 mx-auto">
+    <aside class="col-md-4 text-center">
+        <div class="card text-center">
+            <div class="card-header">
+                User Information
+            </div>
+
+            <div class=card-body>
+                <%= user_image(current_user, "image-size") %>
+                <h3><%= current_user.name %></h3>
+                <%= current_user.email %>
+                <br>
+                <%= link_to("Update Profile", edit_user_path(current_user), class: "btn btn-primary") %>
+
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h6>###</h6>
+                        <small>following</small>    
+                    </div>
+                    <div class="col">
+                        <h6>###</h6>
+                        <small>followers</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <h6>###</h6>
+                <small>words learned</small>
+            </div>
+        </div>
+    </aside>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Activity Feeds
+            </div>
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,12 @@
-<div class="row container">
+<% provide(:title, @user.name) %>
+
+<div class="row container mt-5 mx-auto">
     <aside class="col-md-5 border">
         <section class="my-3 mx-3">
             <%= render 'shared/user_info'  %>
         </section>
     </aside>
+    <div class="col-md-7 border py-3 px-3">
+        <h3 class="border-bottom">Activity Feeds</h3>
+    </div>
 </div>
