@@ -27,3 +27,10 @@ following = followers[2..50]
 followers = followers[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+User.create(
+  name: "Admin User",
+  email: "admin@gmail.com",
+  password: "password",
+  admin: true
+)

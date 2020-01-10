@@ -1,0 +1,14 @@
+<div class="jumbotron container mt-5 text-center">
+    <h1>Admin Page</h1>        
+    <div class="row mx-auto">
+        <div class="col-6">
+            <%= link_to "Categories", "#", class: "btn btn-primary"%>
+            <p>You can change the categories, decriptions, words, answers and choices here.</p>
+        </div>
+        <div class="col-6">
+            <%= link_to "Users", "#", class: "btn btn-primary" %>
+            <p>You can add or remove the administration to users.</p>
+        </div>
+    </div>
+    <%= link_to("Back to Home", root_path, class: "btn btn-outline-primary mx-auto") %>
+</div>
