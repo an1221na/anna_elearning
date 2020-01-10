@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_043204) do
+ActiveRecord::Schema.define(version: 2020_01_10_030940) do
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_043204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.boolean "admin", default: false
   end
 
 end

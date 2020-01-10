@@ -5,6 +5,9 @@
             <h3><%= @user.name %></h3>
             <p><%= @user.email %></p>
             <%= render 'follow_form' %>
+            <% if current_user.admin? && @user == current_user %>
+            	<%= link_to "Admin", admin_home_path, class: "btn btn-primary" %>
+　          <% end %>
         </div>
     </div>
 
