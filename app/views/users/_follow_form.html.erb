@@ -1,0 +1,11 @@
+<% unless current_user == @user %>
+    <% unless current_user.relationship(@user) %>
+        <%= button_to "Follow", relationships_path,
+                            params: {followed_id: @user.id},
+                            class: "btn btn-sm btn-success" %>
+    <% else %>
+        <%= button_to "Unfollow", relationship_path(current_user.relationship(@user)),
+                                        method: :delete,
+                                        class: "btn btn-sm btn-danger" %>
+    <% end %>
+<% end %>

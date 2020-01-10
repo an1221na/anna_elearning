@@ -1,0 +1,20 @@
+<div class="row container mt-5 mx-auto">
+    <div class="col-md-4 border">
+        <%= render "shared/user_info" %>
+    </div>
+    <div class="col-md-8 border">
+        <h3><%= @title %></h3>
+        <hr>
+        <% @users.each do |user| %>
+          <div class="media m-3">
+            <%= user_image(user, "image-size") %>
+            <div class="media-body ml-3">
+                <h4><%= link_to user.name, user %></h4>
+            </div>
+          </div>
+        <% end %>
+        <div class="paginate">
+            <%= will_paginate %>
+        </div>
+    </div>
+</div>
