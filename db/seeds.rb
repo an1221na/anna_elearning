@@ -7,15 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(
-    name: "Anna",
-    email: "anna@test.com",
-    password: "password"
+  name: "Anna",
+  email: "anna@test.com",
+  password: "password"
 )
 
 50.times do |n|
-    User.create(
-        name: Faker::Dessert.variety,
-        email: "user#{n+1}@email.com",
-        password: "password"
-    )
+  User.create(
+      name: Faker::Dessert.variety,
+      email: "user#{n+1}@email.com",
+      password: "password"
+  )
 end
+
+user = User.first
+followers = User.all
+
+following = followers[2..50]
+followers = followers[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
