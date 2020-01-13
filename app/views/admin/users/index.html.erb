@@ -18,6 +18,13 @@
                                 <div class="col-md-5 my-auto">
                                     <%= link_to user.name, user %>
                                 </div>                    
+                                <div class="col-md-4 mx-auto my-auto">
+                                    <% if user.admin? %>
+                                        <%= link_to("Remove Admin", admin_user_path(user), method: :delete, class: "btn btn-danger float-right mr-3") %>
+                                    <% else %>
+                                        <%= link_to("Add to Admin", admin_user_path(user), method: :patch, class: "btn btn-success float-right mr-3") %>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </section>
