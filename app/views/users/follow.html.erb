@@ -1,14 +1,16 @@
 <div class="row container mt-5 mx-auto">
-    <div class="col-md-4 border">
-        <%= render "shared/user_info" %>
-    </div>
-    <div class="col-md-8 border">
+    <aside class="col-md-5 border">
+        <section class="my-3 mx-3">
+            <%= render 'shared/user_info'  %>
+        </section>
+    </aside>
+    <div class="col-md-7 border py-3 px-3">
         <h3><%= @title %></h3>
         <hr>
         <% @users.each do |user| %>
           <div class="media m-3">
             <%= user_image(user, "image-size") %>
-            <div class="media-body ml-3">
+            <div class="media-body ml-3 my-auto">
                 <h4><%= link_to user.name, user %></h4>
             </div>
           </div>
@@ -17,4 +19,3 @@
             <%= will_paginate %>
         </div>
     </div>
-</div>

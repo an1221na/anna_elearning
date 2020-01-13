@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
     get 'home', to: 'static_pages#home'
+    get 'users', to: 'users#index'
+    resources :users, only: [:update, :destroy]
   end
+
   root 'static_pages#home'
 
   get '/about', to: 'static_pages#about'
@@ -19,5 +22,5 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  
+
 end
