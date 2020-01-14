@@ -1,0 +1,12 @@
+<%= form_for[:admin, (@category, @word)] do |f| %>
+    <div class="form-group">
+        <%= label_tag "Word" %>
+        <%= f.text_field :content, class: "form-cotrol" %>
+    </div>
+
+    <% if @category.title %>
+        <%= f.submit 'Edit words', class:"btn btn-block btn-outline-success mt-3" %>
+    <% else %>
+        <%= f.submit 'Cretate new words', class:"btn btn-block btn-outline-danger mt-3" %>
+    <% end %>
+<% end  %>
