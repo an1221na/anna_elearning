@@ -43,12 +43,9 @@ class Admin::WordsController < ApplicationController
   def destroy
     @category = Category.find(params[:category_id])
     @word = Word.find(params[:id])
-    if @word.destroy
-      flash[:success] = "Successfully Deleted!"
-      redirect_to  admin_category_words_url
-    else
-      render 'edit'
-    end
+    @word.destroy
+    flash[:success] = "Successfully Deleted!"
+    redirect_to  admin_category_words_url
   end
 
   private
