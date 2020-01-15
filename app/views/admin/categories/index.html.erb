@@ -2,7 +2,7 @@
     <div class="text-center">
         <h1>All Categories</h1>
 
-        <%= link_to "Create New Category", new_admin_category_path, class: "btn btn-success mr-3"  %>
+        <%= link_to "Create New Category", new_admin_category_path, class: "btn btn-primary mr-3 my-3"  %>
 
         <div class="row">
             <% @categories.each do |category| %>
@@ -11,13 +11,14 @@
                         <div class="card text-left my-3">
                             <div class="card-header">
                                 <small>Title:</small>
-                                <%= link_to category.title, admin_category_path(category) %>
+                                <%= link_to category.title, admin_category_words_path(category) %>
                             </div>
 
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <small>Description:</small>
+                                        <br>
                                         <%= category.description %>
                                     </div>
                                     <div class="col-md-5">
@@ -31,7 +32,8 @@
                         </div>
                     </section>
                 </div>
-        <% end %>
+            <% end %>
+            <%= link_to("Back to Admin Page", admin_home_path, class: "btn btn-outline-primary mx-auto") %>
         </div>
     </div>
 </div>

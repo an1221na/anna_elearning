@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     get 'home', to: 'static_pages#home'
     get 'users', to: 'users#index'
     resources :users, only: [:update, :destroy]
-    resources :categories
+    resources :categories do
+      resources :words
+    end
   end
 
   root 'static_pages#home'

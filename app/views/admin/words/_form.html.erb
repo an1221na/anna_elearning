@@ -1,0 +1,20 @@
+<%= form_for [:admin, @category, @word] do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group my-3">
+        <strong><%= label_tag "Word:" %></strong>
+        <%= f.text_field :content, class: "form-cotrol" %>
+    </div>
+    <div class="form-group">
+        <%= label_tag "★Choices★" %>
+        <%= f.fields_for :choices do |choice| %>
+            <%= choice.text_field :content, class: "form-control" %>
+            <%= choice.check_box :correct, class: "d-inline" %>
+            <p class="d-inline">This is the answer!</p> 
+        <% end %>   
+
+    <% if @word.content %>
+        <%= f.submit 'Edit words', class:"btn btn-block btn-outline-success mt-3" %>
+    <% else %>
+        <%= f.submit 'Cretate new words', class:"btn btn-block btn-outline-danger mt-3" %>
+    <% end %>
+<% end  %>

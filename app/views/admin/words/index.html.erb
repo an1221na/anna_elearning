@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>All Words</h1>
+
+        <%= link_to "Create New Word", new_admin_category_word_path, class: "btn btn-primary mr-3 my-3"  %>
+
+        <div class="row">
+            <% @words.each do |word| %>
+                <div class="col-md-6">
+                    <section>
+                        <div class="card text-left my-3">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <small>Title:</small>
+                                        <%=  word.content %>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <%= link_to "Edit", edit_admin_category_word_path(@category, word), class: "btn btn-outline-success mr-3" %>
+                                        <%= link_to "Delete", admin_category_word_path(@category, word),
+                                            method: :delete,
+                                            class: "btn btn-outline-danger mr-3" %>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </div>
+                        <div class="card-body float-left text-left">
+                            <h5>Answer:<%= word.correct_answer %></h5><hr>
+                            <% word.choices.each do |choice| %>
+                                <small>Choice:</small>
+                                <%= choice.content %>
+                                <br>
+                            <% end %>
+                        </div>
+                    </section>
+                </div>
+            <% end %>
+            <%= link_to("Back to Category List", admin_categories_path, class: "btn btn-outline-primary mx-auto") %>
+        </div>
+    </div>
+</div>
