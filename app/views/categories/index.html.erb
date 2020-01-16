@@ -8,6 +8,10 @@
             <%= link_to "Not Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
         </div>
 
+        <div class="paginate mb-3">
+            <%= will_paginate %>
+        </div>
+
         <div class="row">
             <% @categories.each do |category| %>
                 <div class="col-md-6">
@@ -44,6 +48,11 @@
                 </div>
             <% end %>
         </div>
+        
+        <div class="paginate mb-3">
+            <%= will_paginate %>
+        </div>
+
         <%= link_to "Back to Home", root_path, class: "btn btn-outline-primary mx-auto" %>
     </div>
 </div>
