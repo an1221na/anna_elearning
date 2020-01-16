@@ -1,8 +1,12 @@
 <div class="container mt-5">
     <div class="text-center">
-        <h1>All Categories</h1>
+        <h1>Lesson Page</h1>
 
-        <%= link_to "Create New Category", new_admin_category_path, class: "btn btn-primary mr-3 my-3"  %>
+        <div class="my-3">
+            <%= link_to "All", "#", class: "btn btn-outline-secondary mx-auto" %>
+            <%= link_to "Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
+            <%= link_to "Not Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
+        </div>
 
         <div class="paginate mb-3">
             <%= will_paginate %>
@@ -14,8 +18,17 @@
                     <section>
                         <div class="card text-left my-3">
                             <div class="card-header">
-                                <small>Title:</small>
-                                <%= link_to category.title, admin_category_words_path(category) %>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <small>Title:</small>
+                                        <%= category.title %>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <%= category.number_of_words.count %>
+                                        <small class="d-inline">words</small>
+                                        <br>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="card-body">
@@ -26,10 +39,7 @@
                                         <%= category.description %>
                                     </div>
                                     <div class="col-md-5">
-                                        <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-success mr-3" %>
-                                        <%= link_to "Delete", admin_category_path(category),
-                                            method: :delete,
-                                            class: "btn btn-outline-danger mr-3" %>
+                                        <%= link_to "Start Lesson", "#", class: "btn btn-outline-success mr-3" %>
                                     </div>
                                 </div>
                             </div>
@@ -38,11 +48,11 @@
                 </div>
             <% end %>
         </div>
-
+        
         <div class="paginate mb-3">
             <%= will_paginate %>
         </div>
 
-        <%= link_to("Back to Admin Page", admin_home_path, class: "btn btn-outline-primary mx-auto") %>
+        <%= link_to "Back to Home", root_path, class: "btn btn-outline-primary mx-auto" %>
     </div>
 </div>
