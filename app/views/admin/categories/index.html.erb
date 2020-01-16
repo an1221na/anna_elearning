@@ -4,6 +4,10 @@
 
         <%= link_to "Create New Category", new_admin_category_path, class: "btn btn-primary mr-3 my-3"  %>
 
+        <div class="paginate mb-3">
+            <%= will_paginate %>
+        </div>
+
         <div class="row">
             <% @categories.each do |category| %>
                 <div class="col-md-6">
@@ -34,6 +38,11 @@
                 </div>
             <% end %>
         </div>
+
+        <div class="paginate mb-3">
+            <%= will_paginate %>
+        </div>
+
         <%= link_to("Back to Admin Page", admin_home_path, class: "btn btn-outline-primary mx-auto") %>
     </div>
 </div>
