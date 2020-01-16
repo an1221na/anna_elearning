@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Lesson Page</h1>
+
+        <div class="my-3">
+            <%= link_to "All", "#", class: "btn btn-outline-secondary mx-auto" %>
+            <%= link_to "Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
+            <%= link_to "Not Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
+        </div>
+
+        <div class="row">
+            <% @categories.each do |category| %>
+                <div class="col-md-6">
+                    <section>
+                        <div class="card text-left my-3">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <small>Title:</small>
+                                        <%= category.title %>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <%= category.number_of_words.count %>
+                                        <small class="d-inline">words</small>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <small>Description:</small>
+                                        <br>
+                                        <%= category.description %>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <%= link_to "Start Lesson", "#", class: "btn btn-outline-success mr-3" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            <% end %>
+        </div>
+        <%= link_to "Back to Home", root_path, class: "btn btn-outline-primary mx-auto" %>
+    </div>
+</div>
