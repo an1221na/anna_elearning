@@ -70,3 +70,5 @@ gem 'will_paginate-bootstrap4', '~> 0.2.2'
 gem 'faker', '~> 2.9'
 
 gem 'carrierwave'
+
+gem "font-awesome-rails"

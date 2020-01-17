@@ -8,7 +8,7 @@
             <%= link_to "Not Learned", "#", class: "btn btn-outline-secondary mx-auto" %>
         </div>
 
-        <div class="paginate mb-3">
+        <div class="paginate pagination justify-content-center mb-3">
             <%= will_paginate %>
         </div>
 
@@ -39,7 +39,13 @@
                                         <%= category.description %>
                                     </div>
                                     <div class="col-md-5">
-                                        <%= link_to "Start Lesson", "#", class: "btn btn-outline-success mr-3" %>
+                                        <% lesson = current_user.lesson_taken(category.id) %>
+                                        <% if lesson.nil? %>
+                                            <%= link_to "Start Lesson", lessons_path(category_id: category.id), method: :post, class: "btn btn-outline-success mr-3" %>
+                                        <% else %>
+                                            <%= link_to "Show Result", lesson_path(lesson), class: "btn btn-outline-danger mr-3" %>
+                                        <% end %>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +55,7 @@
             <% end %>
         </div>
         
-        <div class="paginate mb-3">
+        <div class="paginate pagination justify-content-center mb-3">
             <%= will_paginate %>
         </div>
 
