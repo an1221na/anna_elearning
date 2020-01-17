@@ -39,7 +39,13 @@
                                         <%= category.description %>
                                     </div>
                                     <div class="col-md-5">
-                                        <%= link_to "Start Lesson", "#", class: "btn btn-outline-success mr-3" %>
+                                        <% lesson = current_user.lesson_taken(category.id) %>
+                                        <% if lesson.nil? %>
+                                            <%= link_to "Start Lesson", lessons_path(category_id: category.id), method: :post, class: "btn btn-outline-success mr-3" %>
+                                        <% else %>
+                                            <%= link_to "Show Result", "#", class: "btn btn-outline-danger mr-3" %>
+                                        <% end %>
+                                        
                                     </div>
                                 </div>
                             </div>

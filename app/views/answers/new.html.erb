@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="text-center">
+        <h1><%= @category.title %></h1>
+        <small>Select your answer!!</small>
+        <br>
+        <small><%= @lesson.words.count + 1 %> of <%= @category.words.count %></small>
+
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <section>
+                    <div class="card my-3">
+                        <div class="card-header">
+                            <small>Word:</small>
+                            <%= @lesson.next_word.content %>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <% @lesson.next_word.choices.each do |choice| %>
+                                <%= form_for([@lesson, @answer]) do |f| %>
+                                    <%= f.hidden_field :word_id, value: choice.word_id %>
+                                    <%= f.hidden_field :choice_id, value: choice.id %>
+                                    <%= f.submit choice.content, class: "btn btn-outline-secondary my-2 w-50" %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+

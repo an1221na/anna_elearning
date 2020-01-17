@@ -22,6 +22,8 @@ class User < ApplicationRecord
           foreign_key: "followed_id",
           dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+
+  has_many :lessons, dependent: :destroy
   
 
 
@@ -62,6 +64,10 @@ class User < ApplicationRecord
     active_relationships.find_by(
       followed_id: other_user.id
     )
+  end
+
+  def lesson_taken(cat_id)
+    lesson = lessons.find_by(category_id: cat_id)
   end
 
 end
