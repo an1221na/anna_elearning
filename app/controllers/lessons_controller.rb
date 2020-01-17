@@ -11,7 +11,9 @@ class LessonsController < ApplicationController
   end
 
   def show
-    # answerのnew-createループが終了したら、このファンクションで結果ページを出す
+    # answerのnew-createループが終了したら、このファンクションで結果ページを出す 
+    @lesson = Lesson.find(params[:id])
+    @answers = @lesson.answers.paginate(page: params[:page], per_page: 5)
   end
 
 end
