@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  
+
   root 'static_pages#home'
 
   get '/about', to: 'static_pages#about'
@@ -26,5 +28,10 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :words, only: [:index]
+
+  resources :lessons do
+    resources :answers
+  end
 
 end
