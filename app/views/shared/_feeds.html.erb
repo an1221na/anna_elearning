@@ -1,0 +1,34 @@
+<% if @activities.any? %>
+    <% @activities.each do |activity| %>
+        <div class="row">
+            <div class="col-md-4">
+                <%= user_image(activity.user, "image-size") %>
+            </div>
+            <div class="col-md-8 my-auto">
+                <% if activity.action_type == "Lesson" %>
+                    <% if activity.user == current_user %>
+                        <p><%= link_to "You", root_path %> learned <%= activity.action.result %> of <%= activity.action.category.words.count %> in <%= link_to activity.action.category.title, lesson_path(id: activity.action.id) %></p>
+                    <% else %>
+                        <p><%= link_to activity.user.name, user_path(activity.user) %> learned <%= activity.action.result %> of <%= activity.action.category.words.count %> in <%= link_to activity.action.category.title, lesson_path(id: activity.action.id) %></p>
+                    <% end %>
+                <% else %>
+                    <% followed_user = User.find_by(id: activity.action.followed_id) %>
+                    <% if activity.user == current_user %>
+                        <p><%= link_to "You", root_path %> followed <%= link_to followed_user.name, user_path(followed_user) %></p>
+                    <% else %>
+                        <% if followed_user == current_user %>
+                            <p><%= link_to activity.user.name, user_path(activity.user) %> followed <%= link_to "You", root_path %></p>
+                        <% else %>
+                            <p><%= link_to activity.user.name, user_path(activity.user) %> followed <%= link_to followed_user.name, user_path(followed_user) %></p>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <span class="timestamp text-secondary font">
+                    <small><%= time_ago_in_words(activity.created_at) %> ago.</small>
+                </span>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <h3>Nothing to show</h3>
+<% end %>
