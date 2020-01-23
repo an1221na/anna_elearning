@@ -1,10 +1,10 @@
 <% if @activities.any? %>
     <% @activities.each do |activity| %>
         <div class="row">
-            <div class="col-md-4">
-                <%= user_image(activity.user, "image-size") %>
+            <div class="col-md-3">
+                <%= user_image(activity.user, "smaller-image-size") %>
             </div>
-            <div class="col-md-8 my-auto">
+            <div class="col-md-9 my-auto">
                 <% if activity.action_type == "Lesson" %>
                     <% if activity.user == current_user %>
                         <p><%= link_to "You", root_path %> learned <%= activity.action.result %> of <%= activity.action.category.words.count %> in <%= link_to activity.action.category.title, lesson_path(id: activity.action.id) %></p>
@@ -30,5 +30,5 @@
         </div>
     <% end %>
 <% else %>
-    <h3>Nothing to show</h3>
+    <h5>Nothing to show</h5>
 <% end %>

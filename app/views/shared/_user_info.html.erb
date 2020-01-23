@@ -1,32 +1,23 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="media">
-        <div class="media-body ml-3 text-center  mx-auto">
-            <%= user_image(@user, "image-size") %>
-            <h3><%= @user.name %></h3>
-            <p><%= @user.email %></p>
-            <%= render 'follow_form' %>
-            <% if current_user.admin? && @user == current_user %>
-            	<%= link_to "Admin", admin_home_path, class: "btn btn-primary" %>
-　          <% end %>
-        </div>
+<%= user_image(@user, "image-size") %>
+<h3 class="my-2"><%= link_to @user.name, user_path(@user) %></h3>
+<%= @user.email %>
+<%= render 'follow_form' %>
+<br>
+<% if current_user.admin? && @user == current_user %>
+    <%= link_to "Admin Page", admin_home_path, class: "btn btn-outline-primary my-2" %>
+<% end %>
+<hr>
+<div class="row">
+    <div class="col">
+        <h5>
+            <%= link_to @user.active_relationships.count, following_user_path(@user) %>
+        </h5>
+        <small>following</small>    
     </div>
-
-    <div class="text-center pt-3">
-        <div class="row mx-auto">
-            <div class="col-md-6">
-                <h3>
-                    <%= link_to @user.active_relationships.count, following_user_path(@user) %>
-                </h3>
-                following
-            </div>
-            <div class="col-md-6">
-                <h3>
-                    <%= link_to @user.passive_relationships.count, followers_user_path(@user) %>
-                </h3>
-                followers
-            </div>
-        </div>
+    <div class="col">
+        <h5>
+            <%= link_to @user.passive_relationships.count, followers_user_path(@user) %>
+        </h5>
+        <small>followers</small>
     </div>
-
-
 </div>

@@ -1,21 +1,34 @@
 <div class="row container mt-5 mx-auto">
-    <aside class="col-md-5 border">
-        <section class="my-3 mx-3">
-            <%= render 'shared/user_info'  %>
-        </section>
-    </aside>
-    <div class="col-md-7 border py-3 px-3">
-        <h3><%= @title %></h3>
-        <hr>
-        <% @users.each do |user| %>
-          <div class="media m-3">
-            <%= user_image(user, "image-size") %>
-            <div class="media-body ml-3 my-auto">
-                <h4><%= link_to user.name, user %></h4>
+    <aside class="col-md-4 text-center">
+        <div class="card text-center">
+            <div class="card-header">
+                User Information
             </div>
-          </div>
-        <% end %>
-        <div class="paginate pagination justify-content-center mb-3">
+
+            <div class=card-body>
+                <%= render 'shared/user_info'  %>
+            </div>
+        </div>
+    </aside>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center">
+                <%= @title %>
+            </div>
+            <div class="card-body">
+                <% @users.each do |user| %>
+                    <div class="media m-3">
+                        <%= user_image(user, "smaller-image-size") %>
+                        <div class="media-body ml-3 my-auto">
+                            <h5><%= link_to user.name, user %></h5>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="paginate pagination justify-content-center my-3">
             <%= will_paginate %>
         </div>
     </div>
+</div>
