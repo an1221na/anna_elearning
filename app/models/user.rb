@@ -28,6 +28,8 @@ class User < ApplicationRecord
   has_many :answers, through: :lessons
 
   has_many :categories, through: :lessons
+
+  has_many :activities, dependent: :destroy
   
 
 

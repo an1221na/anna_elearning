@@ -8,7 +8,7 @@
             <%= link_to "Not Learned", categories_path(status: "0"), class: "btn btn-outline-secondary mx-auto #{'active' if params[:status] == "0"}" %>
         </div>
 
-        <div class="paginate pagination justify-content-center mb-3">
+        <div class="paginate pagination justify-content-center my-1">
             <%= will_paginate %>
         </div>
 

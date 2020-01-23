@@ -16,21 +16,42 @@
  *= require_self
  */
 
- .image-size {
-    width: 150px;
-    height: 150px;
- }
+.image-size {
+   width: 150px;
+   height: 150px;
+   object-fit: cover;
+}
 
- .index-image-size {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
- }
+.index-image-size {
+   width: 100px;
+   height: 100px;
+   margin: 10px;
+   object-fit: cover;
+}
 
- .correct_color {
-    color: #66cdaa;
- }
+.smaller-image-size {
+   width: 80px;
+   height: 80px;
+   margin: 10px;
+   object-fit: cover;
+}
 
- .wrong_color {
+.correct_color {
+   color: #66cdaa;
+}
+
+.wrong_color {
    color: #ffb6c1;
+}
+
+footer {
+   background-color: #b0c4de;
+   margin-top: 20px;
+   height: 50px;
+}
+
+.border_line {
+   border: solid 4px white;
+   border-radius: 12px;
+   margin: 5px 0;
 }

@@ -1,12 +1,29 @@
 <% provide(:title, @user.name) %>
 
 <div class="row container mt-5 mx-auto">
-    <aside class="col-md-5 border">
-        <section class="my-3 mx-3">
-            <%= render 'shared/user_info'  %>
-        </section>
+    <aside class="col-md-4 text-center">
+        <div class="card text-center">
+            <div class="card-header">
+                User Information
+            </div>
+
+            <div class=card-body>
+                <%= render 'shared/user_info'  %>
+            </div>
+        </div>
     </aside>
-    <div class="col-md-7 border py-3 px-3">
-        <h3 class="border-bottom">Activity Feeds</h3>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center">
+                Activity Feeds
+            </div>
+            <div class="card-body">
+                <%= render 'shared/feeds' %>
+            </div>
+        </div>
+        <div class="paginate pagination justify-content-center my-3">
+            <%= will_paginate @activities %>
+        </div>
     </div>
 </div>
