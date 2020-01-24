@@ -14,7 +14,7 @@
     </aside>
 
     <div class="col-md-8">
-        <div class="card">
+        <div class="card activity">
             <div class="card-header text-center">
                 Activity Feeds
             </div>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="paginate pagination justify-content-center my-3">
-            <%= will_paginate @activities %>
+            <%= will_paginate @activities, :previous_label => '<', :next_label => '>' %>
         </div>
     </div>
 </div>

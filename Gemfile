@@ -66,9 +66,12 @@ gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.2', '>= 3.2.1'
 gem 'will_paginate-bootstrap4', '~> 0.2.2'
+# gem 'will_paginate-bootstrap'
 
 gem 'faker', '~> 2.9'
 
 gem 'carrierwave'
 
 gem "font-awesome-rails"
+
+gem 'data-confirm-modal'

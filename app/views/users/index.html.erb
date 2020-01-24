@@ -1,22 +1,22 @@
-<div class="jumbotron container mt-5">
+<div class="container mt-5">
     <div class="text-center">
         <h1>All Users</h1>
 
         <div class="paginate pagination justify-content-center mb-3">
-            <%= will_paginate %>
+            <%= will_paginate :previous_label => '<', :next_label => '>' %>
         </div>
 
         <div class="row text-left">
             <% @users.each do |user| %>
                 <div class="col-md-6">
-                    <section>
+                    <section class="section_color">
                         <div class="border_line">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <%= user_image(user, "index-image-size") %>
                                 </div>
                                 <div class="col-md-5 my-auto">
-                                    <%= link_to user.name, user %>
+                                    <%= link_to user.name, user, :style=>"color: #20b2aa;" %>
                                 </div>                    
                             </div>
                         </div>
@@ -25,5 +25,10 @@
             <% end %>
         </div>
 
+        <div class="paginate pagination justify-content-center my-3">
+            <%= will_paginate :previous_label => '<', :next_label => '>' %>
+        </div>
+
+        <%= link_to("Back to Home", root_path, class: "btn btn-blue mx-auto my-3") %>        
     </div>
 </div>

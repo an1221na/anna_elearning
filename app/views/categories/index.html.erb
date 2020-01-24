@@ -3,13 +3,13 @@
         <h1>Lesson Page</h1>
 
         <div class="my-3">
-            <%= link_to "All", categories_path, class: "btn btn-outline-secondary mx-auto #{'active' if params[:status] == nil}" %>
-            <%= link_to "Learned", categories_path(status: "1"), class: "btn btn-outline-secondary mx-auto #{'active' if params[:status] == "1"}" %>
-            <%= link_to "Not Learned", categories_path(status: "0"), class: "btn btn-outline-secondary mx-auto #{'active' if params[:status] == "0"}" %>
+            <%= link_to "All", categories_path, class: "btn btn-outline-secondary mx-auto w-25 #{'active' if params[:status] == nil}" %>
+            <%= link_to "Learned", categories_path(status: "1"), class: "btn btn-outline-secondary w-25 mx-auto #{'active' if params[:status] == "1"}" %>
+            <%= link_to "Not Learned", categories_path(status: "0"), class: "btn btn-outline-secondary w-25 mx-auto #{'active' if params[:status] == "0"}" %>
         </div>
 
         <div class="paginate pagination justify-content-center my-1">
-            <%= will_paginate %>
+            <%= will_paginate :previous_label => '<', :next_label => '>' %>
         </div>
 
         <div class="row">
@@ -56,9 +56,9 @@
         </div>
         
         <div class="paginate pagination justify-content-center mb-3">
-            <%= will_paginate %>
+            <%= will_paginate :previous_label => '<', :next_label => '>' %>
         </div>
 
-        <%= link_to "Back to Home", root_path, class: "btn btn-outline-primary mx-auto" %>
+        <%= link_to "Back to Home", root_path, class: "btn btn-blue mx-auto mb-3" %>
     </div>
 </div>

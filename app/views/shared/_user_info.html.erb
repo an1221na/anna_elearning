@@ -1,5 +1,5 @@
 <%= user_image(@user, "image-size") %>
-<h3 class="my-2"><%= link_to @user.name, user_path(@user) %></h3>
+<h3 class="my-2"><%= link_to @user.name, user_path(@user), :style=>"color: #20b2aa;" %></h3>
 <%= @user.email %>
 <%= render 'follow_form' %>
 <br>
@@ -10,13 +10,13 @@
 <div class="row">
     <div class="col">
         <h5>
-            <%= link_to @user.active_relationships.count, following_user_path(@user) %>
+            <%= link_to @user.active_relationships.count, following_user_path(@user), :style=>"color: #20b2aa;" %>
         </h5>
         <small>following</small>    
     </div>
     <div class="col">
         <h5>
-            <%= link_to @user.passive_relationships.count, followers_user_path(@user) %>
+            <%= link_to @user.passive_relationships.count, followers_user_path(@user), :style=>"color: #20b2aa;" %>
         </h5>
         <small>followers</small>
     </div>

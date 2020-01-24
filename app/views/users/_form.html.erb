@@ -1,4 +1,5 @@
 <%= form_for(@user) do |f| %>
+
 <%= render 'shared/error_messages', object: f.object %>
     <form class="container">
         <div class="form-group">
@@ -24,11 +25,11 @@
                 <%= f.file_field :image %>
             </div>
             <div class="form-group">
-                <%= f.submit "Edit Your Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
+                <%= f.submit "Edit Your Account Here", class:"btn btn-block btn-green mt-3" %>
             </div>
         <% else %>
             <div class="form-group">
-                <%= f.submit "Create New Account Here", class:"btn btn-block btn-outline-danger mt-3" %>
+                <%= f.submit "Create New Account Here", class:"btn btn-block btn-pink mt-3" %>
             </div>
         <% end %>
 
