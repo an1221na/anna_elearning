@@ -1,28 +1,29 @@
-<div class="jumbotron container mt-5">
+<div class="container mt-5">
     <div class="text-center">
-        <h1>All Users</h1>
+        <h1>User Admininistration</h1>
+        <p>Add users to grant administrative rights below!!</p>
 
         <div class="paginate pagination justify-content-center mb-3">
-            <%= will_paginate %>
+            <%= will_paginate :previous_label => '<', :next_label => '>' %>
         </div>
 
         <div class="row text-left">
             <% @users.each do |user| %>
                 <div class="col-md-6">
                     <section>
-                        <div class="border border-light my-2">
+                        <div class="border_line">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <%= user_image(user, "index-image-size") %>
                                 </div>
-                                <div class="col-md-5 my-auto">
-                                    <%= link_to user.name, user %>
+                                <div class="col-md-4 my-auto">
+                                    <%= link_to user.name, user, :style=>"color: #20b2aa;" %>
                                 </div>                    
                                 <div class="col-md-4 mx-auto my-auto">
                                     <% if user.admin? %>
-                                        <%= link_to("Remove Admin", admin_user_path(user), method: :delete, class: "btn btn-danger float-right mr-3") %>
+                                        <%= link_to("Remove", admin_user_path(user), method: :delete, class: "btn btn-outline-danger w-75 float-right mr-3") %>
                                     <% else %>
-                                        <%= link_to("Add to Admin", admin_user_path(user), method: :patch, class: "btn btn-success float-right mr-3") %>
+                                        <%= link_to("Add", admin_user_path(user), method: :patch, class: "btn btn-outline-success w-75 float-right mr-3") %>
                                     <% end %>
                                 </div>
                             </div>
@@ -31,6 +32,6 @@
                 </div>
             <% end %>
         </div>
-
+        <%= link_to("Back to Admin Page", admin_home_path, class: "btn btn-blue mx-auto my-3") %>
     </div>
 </div>

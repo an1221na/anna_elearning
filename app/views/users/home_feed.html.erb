@@ -11,18 +11,21 @@
                 <%= current_user.email %>
                 <br>
                 <%= link_to("Update Profile", edit_user_path(current_user), class: "btn btn-outline-primary my-2") %>
+                <% if current_user.admin? %>
+                    <%= link_to "Admin Page", admin_home_path, class: "btn btn-outline-success my-2" %>
+                <% end %>
 
                 <hr>
                 <div class="row">
                     <div class="col">
                         <h5>
-                            <%= link_to current_user.active_relationships.count, following_user_path(current_user) %>
+                            <%= link_to current_user.active_relationships.count, following_user_path(current_user), :style=>"color: #20b2aa;" %>
                         </h5>
                         <small>following</small>    
                     </div>
                     <div class="col">
                         <h5>
-                            <%= link_to current_user.passive_relationships.count, followers_user_path(current_user) %>
+                            <%= link_to current_user.passive_relationships.count, followers_user_path(current_user), :style=>"color: #20b2aa;" %>
                         </h5>
                         <small>followers</small>
                     </div>
@@ -30,7 +33,7 @@
             </div>
             <div class="card-footer">
                 <h5>
-                    <%= link_to current_user.answers.count, words_path %>
+                    <%= link_to current_user.answers.count, words_path, :style=>"color: #20b2aa;" %>
                 </h5>
                 <small>words learned</small>
             </div>
@@ -38,7 +41,7 @@
     </aside>
 
     <div class="col-md-8">
-        <div class="card">
+        <div class="card ">
             <div class="card-header text-center">
                 Activity Feeds
             </div>
@@ -47,7 +50,7 @@
             </div>
         </div>
         <div class="paginate pagination justify-content-center my-3">
-            <%= will_paginate @activities %>
+            <%= will_paginate @activities, :previous_label => '<', :next_label => '>' %>
         </div>
     </div>
 </div>

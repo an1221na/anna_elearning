@@ -1,11 +1,11 @@
-<div class="jumbotron container mt-5">
+<div class="container mt-5">
 <div class="text-center">
     <h1>Login</h1>
 </div>            
 <div class="row">
     <div class="col-6 mx-auto">
         <%= form_for(:session, url: login_path) do |f| %>
-            <form class="jumbotron container mt-5">
+            <form class="container mt-5">
                 <div class="form-group">
                     <%= f.label :email %><br>
                     <%= f.text_field :email, class:"form-control"  %>
@@ -15,7 +15,7 @@
                     <%= f.password_field :password, class:"form-control"  %>
                 </div>
                 <div class="form-group">
-                    <%= f.submit "Login", class:"btn btn-block btn-outline-primary" %>
+                    <%= f.submit "Login", class:"btn btn-block btn-green" %>
                 </div>
             </form>
         <% end %>

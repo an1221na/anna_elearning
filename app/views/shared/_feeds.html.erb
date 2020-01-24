@@ -7,19 +7,24 @@
             <div class="col-md-9 my-auto">
                 <% if activity.action_type == "Lesson" %>
                     <% if activity.user == current_user %>
-                        <p><%= link_to "You", root_path %> learned <%= activity.action.result %> of <%= activity.action.category.words.count %> in <%= link_to activity.action.category.title, lesson_path(id: activity.action.id) %></p>
+                        <p><%= link_to "You", root_path, :style=>"color: #20b2aa;" %> learned 
+                            <%= activity.action.result %> of 
+                            <%= activity.action.category.words.count %> in 
+                            <%= link_to activity.action.category.title, lesson_path(id: activity.action.id), :style=>"color: #20b2aa;" %></p>
                     <% else %>
-                        <p><%= link_to activity.user.name, user_path(activity.user) %> learned <%= activity.action.result %> of <%= activity.action.category.words.count %> in <%= link_to activity.action.category.title, lesson_path(id: activity.action.id) %></p>
+                        <p><%= link_to activity.user.name, user_path(activity.user), :style=>"color: #20b2aa;" %> learned 
+                            <%= activity.action.result %> of <%= activity.action.category.words.count %> in 
+                            <%= link_to activity.action.category.title, lesson_path(id: activity.action.id), :style=>"color: #20b2aa;" %></p>
                     <% end %>
                 <% else %>
                     <% followed_user = User.find_by(id: activity.action.followed_id) %>
                     <% if activity.user == current_user %>
-                        <p><%= link_to "You", root_path %> followed <%= link_to followed_user.name, user_path(followed_user) %></p>
+                        <p><%= link_to "You", root_path, :style=>"color: #20b2aa;" %> followed <%= link_to followed_user.name, user_path(followed_user), :style=>"color: #20b2aa;" %></p>
                     <% else %>
                         <% if followed_user == current_user %>
-                            <p><%= link_to activity.user.name, user_path(activity.user) %> followed <%= link_to "You", root_path %></p>
+                            <p><%= link_to activity.user.name, user_path(activity.user), :style=>"color: #20b2aa;" %> followed <%= link_to "You", root_path, :style=>"color: #20b2aa;"%></p>
                         <% else %>
-                            <p><%= link_to activity.user.name, user_path(activity.user) %> followed <%= link_to followed_user.name, user_path(followed_user) %></p>
+                            <p><%= link_to activity.user.name, user_path(activity.user), :style=>"color: #20b2aa;"%> followed <%= link_to followed_user.name, user_path(followed_user), :style=>"color: #20b2aa;"%></p>
                         <% end %>
                     <% end %>
                 <% end %>

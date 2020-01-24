@@ -37,11 +37,11 @@
 }
 
 .correct_color {
-   color: #66cdaa;
+   color: #4b0082;
 }
 
 .wrong_color {
-   color: #ffb6c1;
+   color: #ff1493;
 }
 
 footer {
@@ -54,4 +54,110 @@ footer {
    border: solid 4px white;
    border-radius: 12px;
    margin: 5px 0;
+   background-color: rgba(255,255,255, 0.3);
+}
+
+body {
+   font-family: 'Libre Franklin', sans-serif;
+   background-image: url(paper.jpg);
+   background-size: cover;
+   background-color:rgba(255,255,255,0.4);
+   background-blend-mode:lighten;
+}
+
+header {
+   background-color: #5F8AAE;
+   color: #2f4f4f;
+   z-index:100;
+}
+
+.top_image {
+   width: 600px;
+   opacity: 0.7;
+   margin-bottom: 10px;
+}
+
+.admin_image {
+   width: 500px;
+   opacity: 0.8;
+   margin-top: 5px;
+}
+
+h1 {
+   font-family: 'Caveat', cursive;
+}
+
+.paragraph {
+   font-family: 'Caveat', cursive;
+   color: #800000;
+}
+
+.opacity-3 {
+   opacity: 0.3;
+}
+
+.opacity-6 {
+   opacity: 0.6;
+}
+
+.opacity-8 {
+   opacity: 0.8;
+}
+
+.btn-blue {
+   background-color: #5F8AAE;
+   color: white;
+}
+
+.btn-pink {
+   background-color: #db7093;
+   color: white;
+}
+
+.btn-green {
+   background-color: #3cb371;
+   color: white;
+}
+.page-item.active .page-link{
+   border-color: white;
+}
+.pagination {
+   margin: auto;
+   text-align: center;
+   .pagination {
+      .page-item {
+         .active {
+            font-style: normal;
+            background: #f5deb3;
+            border-radius: 22.5px;
+            border-color: #cd853f;
+         }
+         .disabled {
+            color: #666666;
+            background: #fffacd;
+            border-radius: 23px;
+         }
+         .page-link {
+            background-color: #d2b48c;
+            text-decoration: none;
+            border-radius: 22.5px;
+            .active {
+               border-color: white;
+            }
+         }
+         a:hover {
+            background: #f5deb3;
+            color: white;
+            border: none;
+         }
+      }
+   }
+ }
+
+.pagination * {
+   color: white;
+   font-size: 12px;
+   font-weight: bold;
+   padding: 8px 12px;
+   border-radius: 25px;
 }

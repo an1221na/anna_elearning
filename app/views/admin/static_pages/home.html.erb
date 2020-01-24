@@ -1,14 +1,17 @@
-<div class="jumbotron container mt-5 text-center">
+<div class="container mt-5 text-center">
     <h1>Admin Page</h1>        
-    <div class="row mx-auto">
+    <%= image_tag("flower.jpeg", class: "admin_image") %>
+    <div class="row mx-auto my-5">
         <div class="col-6">
-            <%= link_to "Categories", admin_categories_path, class: "btn btn-primary"%>
+            <%= link_to "Categories", admin_categories_path, class: "btn btn-pink w-25"%>
+            <hr>
             <p>You can change the categories, decriptions, words, answers and choices here.</p>
         </div>
         <div class="col-6">
-            <%= link_to "Users", admin_users_path, class: "btn btn-primary" %>
+            <%= link_to "Users", admin_users_path, class: "btn btn-pink w-25" %>
+            <hr>
             <p>You can add or remove the administration to users.</p>
         </div>
     </div>
-    <%= link_to("Back to Home", root_path, class: "btn btn-outline-primary mx-auto") %>
+    <%= link_to("Back to Home", root_path, class: "btn btn-blue mx-auto mb-3") %>
 </div>
